@@ -1,6 +1,6 @@
-# HornLab
+# Horn inference
 
-HornLab computes what follows from supplied positive propositional definite-Horn rules and initial facts. It shows every closure round, satisfying model and minimal initial-fact support. Circular rule support alone does not establish entailment.
+Horn inference computes what follows from supplied positive propositional definite-Horn rules and initial facts. It shows every closure round, satisfying model and minimal initial-fact support. Circular rule support alone does not establish entailment.
 
 Three inspectors vary different inputs:
 
@@ -8,7 +8,7 @@ Three inspectors vary different inputs:
 - [Rule deletion](RULES.md): keep initial facts fixed and inspect minimal rule supports and deletion sets.
 - [Fact maintenance](UPDATES.md): apply explicit fact changes with fixed rules and inspect overdeletion, restoration and delta propagation.
 
-[Live inspector](https://midya8.github.io/hornlab/) · [Method and inspected sources](METHOD.md)
+[Live inspector](https://midya8.github.io/horn-inference/) · [Method and inspected sources](METHOD.md)
 
 The default program has a nonleast supported model containing an unsupported cycle. Forward chaining derives only its initial seed. A satisfying model can contain atoms without any rule justification; a supported model can justify atoms circularly. Positive entailment is captured by the least model, not by either weaker check. Not entailed is not classically false: every definite-Horn program here has an all-true model.
 
@@ -45,11 +45,11 @@ At most six atoms, eight indexed rules and 65,536 input bytes. Positive proposit
 
 ## Rule-deletion audit
 
-[Every route, every break](https://midya8.github.io/hornlab/rules.html) varies indexed rules while fixing initial facts. Inspect all retained subsets, synchronous closures, all minimal rule supports and all minimal deletion sets, every removal/restoration boundary and both minimal-hitting-set dualities. Initial facts cannot be broken by rule deletion; an already absent atom has the empty deletion set. See [RULES.md](RULES.md) for exact semantics, independent verification, controls and inspected primary sources. Select `--rules` on either CLI entry point, with `--verify` for exported rule audits. The original inference and seed-support inspector remains unchanged.
+[Every route, every break](https://midya8.github.io/horn-inference/rules.html) varies indexed rules while fixing initial facts. Inspect all retained subsets, synchronous closures, all minimal rule supports and all minimal deletion sets, every removal/restoration boundary and both minimal-hitting-set dualities. Initial facts cannot be broken by rule deletion; an already absent atom has the empty deletion set. See [RULES.md](RULES.md) for exact semantics, independent verification, controls and inspected primary sources. Select `--rules` on either CLI entry point, with `--verify` for exported rule audits. The original inference and seed-support inspector remains unchanged.
 
 ## Fact maintenance
 
-[Deletion has a derivation debt](https://midya8.github.io/hornlab/updates.html) applies sequences of explicit fact deletions and insertions while keeping rules fixed. Inspect conservative overdeletion, surviving one-step derivations, restored and inserted delta propagation, and every per-rule decision. A deliberately local-support pruning contrast shows why circular local counts do not prove a consequence still follows.
+[Deletion has a derivation debt](https://midya8.github.io/horn-inference/updates.html) applies sequences of explicit fact deletions and insertions while keeping rules fixed. Inspect conservative overdeletion, surviving one-step derivations, restored and inserted delta propagation, and every per-rule decision. A deliberately local-support pruning contrast shows why circular local counts do not prove a consequence still follows.
 
 The independent checker reconstructs the whole trace and computes every resulting least model by intersecting all definite-Horn models, without calling either generator. Shared input validation is disclosed. Twelve synthetic controls include alternate derivations, mixed updates, explicit/inferred overlap, empty-body rules, duplicates, no-ops and empty vocabulary. Native tests cover all 4,096 two-atom program/fact transitions and 350 seeded eight-transaction sequences; optional clingo checks 11,381 stable families. See [UPDATES.md](UPDATES.md) for exact scope, evidence, credited algorithms and reproduction.
 
