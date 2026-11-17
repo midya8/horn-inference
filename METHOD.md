@@ -1,6 +1,6 @@
-# HornLab inference and seed-support method
+# Horn inference inference and seed-support method
 
-[Live inspector](https://midya8.github.io/hornlab/) · [Source](https://github.com/midya8/hornlab)
+[Live inspector](https://midya8.github.io/horn-inference/) · [Source](https://github.com/midya8/horn-inference)
 
 An original bounded implementation of established positive propositional definite-Horn inference. Not a new algorithm, full Datalog interpreter, general SAT solver or production rule engine. All controls and code are original; the stylesheet and generic Chrome startup helper follow the portfolio's existing house style/tooling.
 
